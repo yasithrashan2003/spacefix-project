@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { Lock, User, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom'; // Importing useNavigate hook
 
-const IITAdminLogin = ({ onLoginSuccess, onBack }) => {
+const IITAdminLogin = ({ onBack }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  
+  const navigate = useNavigate(); // Initialize navigate function
 
   const handleLogin = (e) => {
     e.preventDefault();
     if (username === 'iitadminlogin' && password === '1234') {
-      onLoginSuccess?.();
+      // If credentials are correct, navigate to the dashboard
+      navigate('/iitadmindashboard'); // Assuming '/iitadmindashboard' is your route for the dashboard
     } else {
       setError('Invalid credentials');
       setTimeout(() => setError(''), 3000);

@@ -6,6 +6,7 @@ import HomePage from './components/HomePage';
 import AdminLogin from './components/adminportal/AdminLogin';
 import AdminDashboard from './components/adminportal/AdminDashboard';
 import IITAdminLogin from './components/adminportal/IITAdminLogin';
+import IITAdminDashboard from './components/adminportal/IITAdminDashboard.jsx';
 
 
 
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/iit-admin-login" element={<IITAdminLogin />} />
+        <Route path="/iitadmindashboard" element={<IITAdminDashboard />} />
 
 
       </Routes>
