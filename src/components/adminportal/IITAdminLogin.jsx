@@ -11,7 +11,7 @@ const IITAdminLogin = ({ onBack }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === 'iitadminlogin' && password === '1234') {
+    if (username === 'iit' && password === '1234') {
       // If credentials are correct, navigate to the dashboard
       navigate('/iitadmindashboard'); // Assuming '/iitadmindashboard' is your route for the dashboard
     } else {
