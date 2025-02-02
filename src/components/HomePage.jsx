@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Hero = () => {
+const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate(); // Hook for navigation
 
   const scrollToSection = (id) => {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
@@ -14,20 +16,20 @@ const Hero = () => {
       <nav className="bg-slate-50 border-b border-slate-200 fixed w-full top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-20">
-            {/* Logo - Responsive on all screens */}
+            {/* Logo */}
             <div className="flex items-center">
               <span className="text-xl md:text-2xl lg:text-2xl font-bold text-slate-800">SPACEFIX</span>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-12">
-              <button 
+              <button
                 onClick={() => scrollToSection('about')}
                 className="text-slate-600 hover:text-emerald-700 font-medium transition-colors"
               >
                 About
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="text-slate-600 hover:text-emerald-700 font-medium transition-colors"
               >
@@ -36,7 +38,10 @@ const Hero = () => {
               <a href="#" className="text-slate-600 hover:text-emerald-700 font-medium transition-colors">
                 Student Hub
               </a>
-              <button className="px-6 py-2 bg-emerald-700 text-white rounded hover:bg-emerald-800 transition-colors">
+              <button
+                onClick={() => navigate('/admin-login')} // Correct path usage
+                className="px-6 py-2 bg-emerald-700 text-white rounded hover:bg-emerald-800 transition-colors"
+              >
                 Admin Login
               </button>
             </div>
@@ -76,7 +81,10 @@ const Hero = () => {
               <a href="#" className="text-slate-600 hover:text-emerald-700 font-medium transition-colors">
                 Student Hub
               </a>
-              <button className="px-6 py-2 bg-emerald-700 text-white rounded hover:bg-emerald-800 transition-colors">
+              <button
+                onClick={() => navigate('/admin-login')} // Correct path usage for mobile
+                className="px-6 py-2 bg-emerald-700 text-white rounded hover:bg-emerald-800 transition-colors"
+              >
                 Admin Login
               </button>
             </div>
@@ -111,22 +119,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Search Section - Responsive
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 md:-mt-12 lg:-mt-16 relative z-10">
-        <div className="bg-white rounded shadow-lg p-4 md:p-6 border border-slate-100">
-          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-            <input
-              type="text"
-              placeholder="Search courses, programs, or resources..."
-              className="flex-1 p-2 md:p-3 border border-slate-200 rounded text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-transparent"
-            />
-            <button className="bg-slate-800 text-white px-6 md:px-8 py-2 md:py-3 rounded hover:bg-slate-700 transition-colors text-sm md:text-base">
-              Search
-            </button>
-          </div>
-        </div>
-      </div> */}
 
       {/* About Us Section - Responsive */}
       <section id="about" className="py-12 md:py-16 lg:py-20 bg-slate-50">
@@ -206,4 +198,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HomePage;
