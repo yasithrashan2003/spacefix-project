@@ -10,25 +10,25 @@ const UserLoginDashboard = () => {
       id: 1, 
       name: 'Informatics Institute of Technology', 
       code: 'IIT', 
-      logo: 'src/assets/iitlogo.png'
+      logo: 'https://studyway-resources.s3.amazonaws.com/profilePictures/1677148866188.png'
     },
     { 
       id: 2, 
       name: 'University of Colombo', 
       code: 'UOC', 
-      logo: 'src/assets/uoclogo.png'
+      logo: 'https://cmb.ac.lk/wp-content/uploads/logo-color.png'
     },
     { 
       id: 3, 
       name: 'University of Moratuwa', 
       code: 'UOM', 
-      logo: 'src/assets/uomlogo.png'
+      logo: 'https://upload.wikimedia.org/wikipedia/en/6/60/University_of_Moratuwa_logo.png'
     },
     { 
       id: 4, 
       name: 'SLIIT', 
       code: 'SLIIT', 
-      logo: 'src/assets/sliitlogo.png'
+      logo: 'https://threelanka.com/assets/img/logos/SLIIT_Logo_Crest.png'
     }
   ];
 
