@@ -39,7 +39,7 @@ const HomePage = () => {
                 onClick={() => navigate('/user-login')}
                 className="px-6 py-2 bg-emerald-700 text-white rounded hover:bg-emerald-800 transition-colors"
               >
-                Student Hub
+                University Portal
               </button>
               <button
                 onClick={() => navigate('/admin-login')}
@@ -85,7 +85,7 @@ const HomePage = () => {
                 onClick={() => navigate('/user-login')}
                 className="px-6 py-2 bg-emerald-700 text-white rounded hover:bg-emerald-800 transition-colors"
               >
-                Student Hub
+                University Portal
               </button>
               <button
                 onClick={() => navigate('/admin-login')}
@@ -102,7 +102,7 @@ const HomePage = () => {
       <div className="relative pt-20">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 to-emerald-900 opacity-95"></div>
         <div className="relative bg-cover bg-center py-16 md:py-24 lg:py-32" style={{
-          backgroundImage: "url('/api/placeholder/1920/1080')"
+          backgroundImage: "url('')"
         }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
