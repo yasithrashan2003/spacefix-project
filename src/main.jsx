@@ -7,6 +7,8 @@ import AdminLogin from './components/adminportal/AdminLogin';
 import AdminDashboard from './components/adminportal/AdminDashboard';
 import IITAdminLogin from './components/adminportal/IITAdminLogin';
 import IITAdminDashboard from './components/adminportal/IITAdminDashboard.jsx';
+import UserLoginDashboard from './components/logins/UserLoginDashboard.jsx';
+import IITWelcomePage from './components/logins/IITWelcomePage.jsx';
 
 
 
@@ -19,6 +21,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/iit-admin-login" element={<IITAdminLogin />} />
         <Route path="/iitadmindashboard" element={<IITAdminDashboard />} />
+        <Route path="/user-login" element={<UserLoginDashboard />} />
+        <Route path="/iit-welcome" element={<IITWelcomePage />} />
 
 
       </Routes>
