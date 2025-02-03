@@ -88,40 +88,50 @@ const IITWelcomePage = () => {
       {/* Hero Section */}
       <main className="pt-16 bg-gradient-to-r from-slate-900 to-emerald-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between py-20 md:py-32">
-            <div className="flex-1 text-center md:text-left mb-10 md:mb-0">
+          <div className="flex flex-col justify-center items-center py-20 md:py-32 text-center">
+            <div className="mb-8">
               <span className="text-sm font-medium bg-emerald-400/20 text-emerald-600 px-3 py-1 rounded-full">
                 IIT Sri Lanka
               </span>
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Welcome to IIT <span className="text-emerald-400">Spacefix</span>
-              </h1>
-              <p className="text-xl text-slate-400 mb-8 max-w-2xl">
-                Experience seamless space management at Informatics Institute of Technology. 
-                Book labs, classrooms, and meeting spaces with real-time availability.
-              </p>
-              <button className="bg-emerald-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-emerald-800 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                Get Started
-              </button>
             </div>
-            <div className="flex-1 relative">
-              <div className="relative w-full max-w-lg mx-auto">
-                <div className="absolute top-0 -left-4 w-72 h-72 bg-slate-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-                <div className="absolute top-0 -right-4 w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-                <div className="absolute -bottom-8 left-20 w-72 h-72 bg-slate-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-                <div className="relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-                    alt="Modern workspace"
-                    className="rounded-2xl shadow-2xl w-full object-cover transform hover:scale-105 transition-transform duration-300"
-                    style={{ minHeight: '400px' }}
-                  />
-                </div>
-              </div>
-            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+              Welcome to IIT <span className="text-emerald-400">Spacefix</span>
+            </h1>
+            <p className="text-xl sm:text-2xl md:text-3xl text-slate-400 mb-8 max-w-2xl">
+              Experience seamless space management at Informatics Institute of Technology. 
+              Book labs, classrooms, and meeting spaces with real-time availability.
+            </p>
+            <button className="bg-emerald-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-emerald-800 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+              Get Started
+            </button>
           </div>
         </div>
       </main>
+
+      {/* Information Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-semibold text-slate-800 mb-6">Why Choose Spacefix?</h2>
+          <p className="text-lg text-slate-600 mb-8 max-w-3xl mx-auto">
+            Spacefix offers a seamless experience for managing and booking spaces at IIT Sri Lanka. Our platform makes it easy for students, lecturers, and staff to reserve rooms with real-time availability updates.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-slate-800 mb-4">Real-time Booking</h3>
+              <p className="text-slate-600">Book classrooms, labs, and meeting rooms with real-time availability to avoid any conflicts.</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-slate-800 mb-4">Easy to Use</h3>
+              <p className="text-slate-600">The user-friendly interface allows anyone to quickly find and book available spaces in seconds.</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-slate-800 mb-4">Secure & Reliable</h3>
+              <p className="text-slate-600">Our system ensures that all your bookings are secure, and your data is protected at all times.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };
