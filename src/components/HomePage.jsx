@@ -102,7 +102,7 @@ const HomePage = () => {
       <div className="relative pt-20">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 to-emerald-900 opacity-95"></div>
         <div className="relative bg-cover bg-center py-16 md:py-24 lg:py-32" style={{
-          backgroundImage: "url('')"
+          backgroundImage: "url('https://images.unsplash.com/photo-1601933513793-1252ce25d644?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
         }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
