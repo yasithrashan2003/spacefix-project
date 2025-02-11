@@ -47,7 +47,7 @@ const HomePage = () => {
           </button>
         ))}
         <button
-          onClick={() => navigate('/user-login')}
+          onClick={() => navigate('/uni-login')}
           className="px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg hover:from-emerald-600 hover:to-emerald-700 transition-all shadow-lg hover:shadow-xl text-sm font-medium"
         >
           Get Started
@@ -88,7 +88,7 @@ const HomePage = () => {
           </button>
         ))}
         <button
-          onClick={() => navigate('/user-login')}
+          onClick={() => navigate('/uni-login')}
           className="px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg"
         >
           Get Started

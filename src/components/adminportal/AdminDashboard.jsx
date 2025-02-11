@@ -15,7 +15,7 @@ const AdminDashboard = () => {
 
   const handleUniversitySelect = (code) => {
     if (code === 'IIT') {
-      navigate('/iit-admin-login');
+      navigate('');
     } else {
       alert('This university portal is under development');
     }
