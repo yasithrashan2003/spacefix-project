@@ -34,7 +34,7 @@ const HomePage = () => {
     <div className="relative min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-white/80 backdrop-blur-sm'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
@@ -51,9 +51,7 @@ const HomePage = () => {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`text-base font-medium transition-all duration-300 relative group ${
-                    isScrolled ? 'text-gray-700' : 'text-white'
-                  }`}
+                  className="text-gray-700 text-base font-medium transition-all duration-300 relative group"
                 >
                   {item}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
@@ -62,7 +60,7 @@ const HomePage = () => {
               <div className="flex items-center space-x-4">
                 <button
                   onClick={() => navigate('/uni-login')}
-                  className="px-6 py-2.5 text-emerald-600 bg-white/90 rounded-full hover:bg-white transition-all duration-300 font-medium shadow-md hover:shadow-lg"
+                  className="px-6 py-2.5 text-emerald-600 bg-emerald-50 rounded-full hover:bg-emerald-100 transition-all duration-300 font-medium"
                 >
                   Login
                 </button>
@@ -122,180 +120,211 @@ const HomePage = () => {
           </div>
         </div>
       </nav>
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-gray-900 via-emerald-900 to-emerald-800 min-h-screen flex items-center overflow-hidden">
-        {/* Background Image - Better responsive handling */}
-        <div 
-          className="absolute inset-0 bg-center opacity-30"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1574958269340-fa927503f3dd?q=80&w=1948&auto=format&fit=crop')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 40%',
-            transform: 'scale(1.1)', // Slight scale for better edge coverage
-          }}>
+   
+   
+      {/* Hero Section - Light Theme with Gradient Shapes */}
+    <div className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-emerald-50">
+      {/* Decorative Elements */}
+      <div className="absolute inset-0">
+        {/* Large gradient blobs - Adjusted for different screen sizes */}
+        <div className="absolute top-0 right-0 
+          w-[200px] h-[200px] 
+          sm:w-[300px] sm:h-[300px] 
+          md:w-[400px] md:h-[400px] 
+          lg:w-[500px] lg:h-[500px] 
+          xl:w-[600px] xl:h-[600px] 
+          bg-gradient-to-br from-emerald-100/40 to-cyan-100/40 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/4">
+        </div>
+        <div className="absolute bottom-0 left-0 
+          w-[200px] h-[200px] 
+          sm:w-[300px] sm:h-[300px] 
+          md:w-[400px] md:h-[400px] 
+          lg:w-[500px] lg:h-[500px] 
+          xl:w-[600px] xl:h-[600px] 
+          bg-gradient-to-tr from-emerald-100/40 to-cyan-100/40 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/4">
         </div>
         
-        {/* Decorative Elements - Improved responsive sizing */}
-        <div className="absolute inset-0">
-          {/* Top blob - Responsive sizes for different devices */}
-          <div className="absolute top-1/4 left-1/4 
-            w-32 h-32 
-            sm:w-48 sm:h-48 
-            md:w-56 md:h-56 
-            lg:w-64 lg:h-64 
-            xl:w-72 xl:h-72 
-            bg-emerald-500/20 rounded-full filter blur-3xl">
-          </div>
-          {/* Bottom blob - Responsive sizes for different devices */}
-          <div className="absolute bottom-1/4 right-1/4 
-            w-40 h-40 
-            sm:w-64 sm:h-64 
-            md:w-80 md:h-80 
-            lg:w-96 lg:h-96 
-            xl:w-[28rem] xl:h-[28rem] 
-            bg-cyan-500/20 rounded-full filter blur-3xl">
-          </div>
+        {/* Geometric shapes - Responsive sizes */}
+        <div className="absolute 
+          top-1/4 left-1/3 
+          w-16 h-16 
+          sm:w-20 sm:h-20 
+          md:w-24 md:h-24 
+          lg:w-32 lg:h-32 
+          xl:w-40 xl:h-40 
+          bg-gradient-to-br from-emerald-200/20 to-emerald-100/20 rounded-2xl transform rotate-45">
         </div>
         
-        {/* Content - Improved responsive layout */}
-        <div className="relative z-10 text-center 
-          w-full
-          px-4 
-          sm:px-6 
-          lg:px-8 
-          py-10
-          sm:py-16 
-          md:py-20 
-          lg:py-28 
-          xl:py-32 
-          mx-auto 
-          max-w-[95%] 
-          sm:max-w-[90%] 
-          lg:max-w-7xl">
-          <div className="space-y-4 sm:space-y-6 md:space-y-8">
-            {/* Heading - Better text scaling */}
-            <h1 className="text-3xl 
-              sm:text-4xl 
-              md:text-5xl 
-              lg:text-6xl 
-              xl:text-7xl 
-              font-bold 
-              leading-tight 
-              tracking-tight 
-              mb-4 
-              text-white">
-              Transform Your Campus
-              <span className="block 
-                mt-1 
-                sm:mt-2 
-                md:mt-3 
-                bg-gradient-to-r 
-                from-emerald-400 
-                to-cyan-400 
-                bg-clip-text 
-                text-transparent">
-                Experience
-              </span>
-            </h1>
+        {/* Circular gradients - Hide on mobile, show on larger screens */}
+        <div className="hidden md:block absolute 
+          top-1/4 right-1/4 
+          w-32 h-32 
+          md:w-40 md:h-40 
+          lg:w-48 lg:h-48 
+          xl:w-56 xl:h-56 
+          rounded-full bg-gradient-to-r from-emerald-100/30 to-cyan-100/30 blur-2xl">
+        </div>
+        
+        {/* Small accent shapes - Hidden on mobile */}
+        <div className="hidden sm:block absolute 
+          bottom-1/3 right-1/3 
+          w-12 h-12 
+          sm:w-16 sm:h-16 
+          md:w-20 md:h-20 
+          bg-gradient-to-tr from-cyan-300/20 to-cyan-200/20 rounded-full">
+        </div>
+        
+        {/* Diagonal stripes - Hidden on mobile */}
+        <div className="hidden lg:block absolute top-0 left-0 w-96 h-96 opacity-[0.15] transform -rotate-45 scale-150">
+          <div className="absolute w-1 sm:w-2 h-full bg-gradient-to-b from-emerald-200 to-transparent left-20"></div>
+          <div className="absolute w-1 sm:w-2 h-full bg-gradient-to-b from-cyan-200 to-transparent left-48"></div>
+          <div className="absolute w-1 sm:w-2 h-full bg-gradient-to-b from-emerald-200 to-transparent left-80"></div>
+        </div>
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10 text-center w-full 
+        px-4 
+        sm:px-6 
+        lg:px-8 
+        py-8
+        sm:py-12 
+        md:py-16 
+        lg:py-20 
+        xl:py-24 
+        mx-auto 
+        max-w-[95%] 
+        sm:max-w-[90%] 
+        lg:max-w-7xl">
+        <div className="space-y-4 sm:space-y-6 md:space-y-8">
+          {/* Heading - Improved responsive typography */}
+          <h1 className="text-[2rem] 
+            sm:text-[2.5rem] 
+            md:text-[3.5rem] 
+            lg:text-[4rem] 
+            xl:text-[5rem] 
+            font-bold 
+            leading-[1.1] 
+            sm:leading-[1.1] 
+            md:leading-[1.1] 
+            tracking-tight 
+            mb-4 
+            text-gray-900">
+            Transform Your Campus
+            <span className="block 
+              mt-2 
+              sm:mt-2 
+              md:mt-3 
+              bg-gradient-to-r 
+              from-emerald-500 
+              to-cyan-500 
+              bg-clip-text 
+              text-transparent">
+              Experience
+            </span>
+          </h1>
 
-            {/* Description - Responsive text and width */}
-            <p className="text-base 
+          {/* Description - Better text scaling */}
+          <p className="text-base 
+            sm:text-lg 
+            md:text-xl 
+            lg:text-2xl 
+            max-w-[280px]
+            sm:max-w-[400px]
+            md:max-w-[500px]
+            lg:max-w-[600px]
+            xl:max-w-2xl 
+            mx-auto 
+            text-gray-600 
+            leading-relaxed">
+            Revolutionize your university's space management with our intelligent platform.
+          </p>
+          
+          {/* Buttons - Improved responsive layout */}
+          <div className="flex 
+            flex-col 
+            sm:flex-row 
+            justify-center 
+            items-center 
+            gap-3 
+            sm:gap-4 
+            md:gap-5 
+            lg:gap-6 
+            mt-6 
+            sm:mt-8 
+            md:mt-10">
+            {/* Primary Button */}
+            <button className="group 
+              w-[90%]
+              sm:w-auto 
+              min-w-[150px]
+              sm:min-w-[180px]
+              px-6 
+              sm:px-7 
+              md:px-8 
+              lg:px-10 
+              py-3 
+              sm:py-3.5 
+              md:py-4 
+              bg-gradient-to-r 
+              from-emerald-500 
+              to-emerald-600 
+              text-white 
+              rounded-full 
+              hover:shadow-xl 
+              transition-all 
+              duration-300 
+              font-medium 
+              text-base 
               sm:text-lg 
-              md:text-xl 
-              lg:text-2xl 
-              max-w-xs 
-              sm:max-w-lg 
-              md:max-w-xl 
-              lg:max-w-2xl 
-              mx-auto 
-              text-gray-300 
-              leading-relaxed">
-              Revolutionize your university's space management with our intelligent platform.
-            </p>
-            
-            {/* Buttons - Improved responsive layout */}
-            <div className="flex 
-              flex-col 
-              sm:flex-row 
-              justify-center 
-              items-center 
-              gap-3 
-              sm:gap-4 
-              md:gap-5 
-              lg:gap-6 
-              mt-6 
-              sm:mt-8 
-              md:mt-10">
-              {/* Primary Button */}
-              <button className="group 
-                w-full 
-                sm:w-auto 
-                px-6 
-                sm:px-7 
-                md:px-8 
-                lg:px-10 
-                py-3 
-                sm:py-3.5 
-                md:py-4 
-                bg-gradient-to-r 
-                from-emerald-500 
-                to-emerald-600 
-                text-white 
-                rounded-full 
-                hover:shadow-xl 
-                transition-all 
-                duration-300 
-                font-medium 
-                text-base 
-                sm:text-lg 
-                relative 
-                overflow-hidden">
-                <span className="relative z-10">Start Free Trial</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-              </button>
+              relative 
+              overflow-hidden">
+              <span className="relative z-10">Start Free Trial</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+            </button>
 
-              {/* Secondary Button */}
-              <button className="group 
-                w-full 
-                sm:w-auto 
-                px-6 
-                sm:px-7 
-                md:px-8 
-                lg:px-10 
-                py-3 
-                sm:py-3.5 
-                md:py-4 
-                border-2 
-                border-emerald-400 
-                text-emerald-200 
-                rounded-full 
-                hover:bg-emerald-800/50 
-                transition-all 
-                duration-300 
-                font-medium 
-                text-base 
-                sm:text-lg 
-                flex 
-                items-center 
-                justify-center 
-                gap-2">
-                Watch Demo
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24">
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 5l7 7-7 7" 
-                  />
-                </svg>
-              </button>
-            </div>
+            {/* Secondary Button */}
+            <button className="group 
+              w-[90%]
+              sm:w-auto 
+              min-w-[150px]
+              sm:min-w-[180px]
+              px-6 
+              sm:px-7 
+              md:px-8 
+              lg:px-10 
+              py-3 
+              sm:py-3.5 
+              md:py-4 
+              border-2 
+              border-emerald-500 
+              text-emerald-600 
+              rounded-full 
+              hover:bg-emerald-50 
+              transition-all 
+              duration-300 
+              font-medium 
+              text-base 
+              sm:text-lg 
+              flex 
+              items-center 
+              justify-center 
+              gap-2">
+              Watch Demo
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
+    </div>
+
+
+
       {/* Features Section */}
       <section id="features" className="py-20 sm:py-28 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/80 to-transparent"></div>
