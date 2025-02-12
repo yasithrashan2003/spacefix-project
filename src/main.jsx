@@ -7,6 +7,7 @@ import AdminLogin from './components/adminportal/AdminLogin';
 import AdminDashboard from './components/adminportal/AdminDashboard';
 import IITRoleLogin from './components/logins/iitlogins/IITRoleLogin.jsx';
 import UniversityLoginDashboard from './components/logins/UniversityLoginDashboard.jsx';
+import IITStudentLogin from './components/logins/iitlogins/IITStudentLogin.jsx';
 
 
 
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/uni-login" element={<UniversityLoginDashboard />} />
         <Route path="/iit-role-login" element={<IITRoleLogin />} />
+        <Route path="/iit-student-login" element={<IITStudentLogin />} />
 
 
       </Routes>
