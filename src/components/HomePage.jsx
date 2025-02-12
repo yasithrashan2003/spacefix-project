@@ -122,48 +122,180 @@ const HomePage = () => {
           </div>
         </div>
       </nav>
-{/* Hero Section */}
-<div className="relative bg-gradient-to-br from-gray-900 via-emerald-900 to-emerald-800 min-h-screen flex items-center overflow-hidden">
-  <div className="absolute inset-0 bg-cover bg-center opacity-30" 
-      style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1574958269340-fa927503f3dd?q=80&w=1948&auto=format&fit=crop')",
-      }}>
-  </div>
-  
-  {/* Decorative Elements */}
-  <div className="absolute inset-0">
-    <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/20 rounded-full filter blur-3xl"></div>
-    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full filter blur-3xl"></div>
-  </div>
-  
-  <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32 mx-auto max-w-7xl">
-    <div className="animate-fade-in-up">
-      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white">
-        Transform Your Campus
-        <span className="block mt-2 bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-          Experience
-        </span>
-      </h1>
-      <p className="text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto text-gray-300 mb-8 leading-relaxed">
-        Revolutionize your university's space management with our intelligent platform.
-      </p>
-      
-      <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-        <button className="group px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-xl transition-all duration-300 font-medium text-lg relative overflow-hidden">
-          <span className="relative z-10">Start Free Trial</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-        </button>
-        <button className="group px-8 py-4 border-2 border-emerald-400 text-emerald-200 rounded-full hover:bg-emerald-800/50 transition-all duration-300 font-medium text-lg flex items-center gap-2">
-          Watch Demo
-          <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-br from-gray-900 via-emerald-900 to-emerald-800 min-h-screen flex items-center overflow-hidden">
+        {/* Background Image - Better responsive handling */}
+        <div 
+          className="absolute inset-0 bg-center opacity-30"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1574958269340-fa927503f3dd?q=80&w=1948&auto=format&fit=crop')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 40%',
+            transform: 'scale(1.1)', // Slight scale for better edge coverage
+          }}>
+        </div>
+        
+        {/* Decorative Elements - Improved responsive sizing */}
+        <div className="absolute inset-0">
+          {/* Top blob - Responsive sizes for different devices */}
+          <div className="absolute top-1/4 left-1/4 
+            w-32 h-32 
+            sm:w-48 sm:h-48 
+            md:w-56 md:h-56 
+            lg:w-64 lg:h-64 
+            xl:w-72 xl:h-72 
+            bg-emerald-500/20 rounded-full filter blur-3xl">
+          </div>
+          {/* Bottom blob - Responsive sizes for different devices */}
+          <div className="absolute bottom-1/4 right-1/4 
+            w-40 h-40 
+            sm:w-64 sm:h-64 
+            md:w-80 md:h-80 
+            lg:w-96 lg:h-96 
+            xl:w-[28rem] xl:h-[28rem] 
+            bg-cyan-500/20 rounded-full filter blur-3xl">
+          </div>
+        </div>
+        
+        {/* Content - Improved responsive layout */}
+        <div className="relative z-10 text-center 
+          w-full
+          px-4 
+          sm:px-6 
+          lg:px-8 
+          py-10
+          sm:py-16 
+          md:py-20 
+          lg:py-28 
+          xl:py-32 
+          mx-auto 
+          max-w-[95%] 
+          sm:max-w-[90%] 
+          lg:max-w-7xl">
+          <div className="space-y-4 sm:space-y-6 md:space-y-8">
+            {/* Heading - Better text scaling */}
+            <h1 className="text-3xl 
+              sm:text-4xl 
+              md:text-5xl 
+              lg:text-6xl 
+              xl:text-7xl 
+              font-bold 
+              leading-tight 
+              tracking-tight 
+              mb-4 
+              text-white">
+              Transform Your Campus
+              <span className="block 
+                mt-1 
+                sm:mt-2 
+                md:mt-3 
+                bg-gradient-to-r 
+                from-emerald-400 
+                to-cyan-400 
+                bg-clip-text 
+                text-transparent">
+                Experience
+              </span>
+            </h1>
 
+            {/* Description - Responsive text and width */}
+            <p className="text-base 
+              sm:text-lg 
+              md:text-xl 
+              lg:text-2xl 
+              max-w-xs 
+              sm:max-w-lg 
+              md:max-w-xl 
+              lg:max-w-2xl 
+              mx-auto 
+              text-gray-300 
+              leading-relaxed">
+              Revolutionize your university's space management with our intelligent platform.
+            </p>
+            
+            {/* Buttons - Improved responsive layout */}
+            <div className="flex 
+              flex-col 
+              sm:flex-row 
+              justify-center 
+              items-center 
+              gap-3 
+              sm:gap-4 
+              md:gap-5 
+              lg:gap-6 
+              mt-6 
+              sm:mt-8 
+              md:mt-10">
+              {/* Primary Button */}
+              <button className="group 
+                w-full 
+                sm:w-auto 
+                px-6 
+                sm:px-7 
+                md:px-8 
+                lg:px-10 
+                py-3 
+                sm:py-3.5 
+                md:py-4 
+                bg-gradient-to-r 
+                from-emerald-500 
+                to-emerald-600 
+                text-white 
+                rounded-full 
+                hover:shadow-xl 
+                transition-all 
+                duration-300 
+                font-medium 
+                text-base 
+                sm:text-lg 
+                relative 
+                overflow-hidden">
+                <span className="relative z-10">Start Free Trial</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </button>
+
+              {/* Secondary Button */}
+              <button className="group 
+                w-full 
+                sm:w-auto 
+                px-6 
+                sm:px-7 
+                md:px-8 
+                lg:px-10 
+                py-3 
+                sm:py-3.5 
+                md:py-4 
+                border-2 
+                border-emerald-400 
+                text-emerald-200 
+                rounded-full 
+                hover:bg-emerald-800/50 
+                transition-all 
+                duration-300 
+                font-medium 
+                text-base 
+                sm:text-lg 
+                flex 
+                items-center 
+                justify-center 
+                gap-2">
+                Watch Demo
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24">
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M9 5l7 7-7 7" 
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Features Section */}
       <section id="features" className="py-20 sm:py-28 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/80 to-transparent"></div>
