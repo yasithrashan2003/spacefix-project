@@ -1,32 +1,14 @@
-// IITStudentLogin.jsx
 import React, { useState } from 'react';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db, googleProvider } from '../../../firebase/firebaseConfig';
 import { useNavigate } from 'react-router-dom';
+import { Shield } from 'lucide-react';
 
 const IITStudentLogin = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    username: '',
-    password: ''
-  });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted:', formData);
-  };
 
   const saveUserToFirestore = async (user) => {
     try {
@@ -56,7 +38,7 @@ const IITStudentLogin = () => {
       });
       const result = await signInWithPopup(auth, googleProvider);
       await saveUserToFirestore(result.user);
-      navigate('/dashboard'); // Add your desired navigation path
+      navigate('/dashboard');
     } catch (error) {
       console.error('Google sign-in error:', error);
       if (error.code === 'auth/popup-closed-by-user') {
@@ -72,102 +54,79 @@ const IITStudentLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-lg shadow-sm p-8">
-        <div className="flex flex-col items-center mb-6">
-          <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mb-4">
-            <span className="text-2xl font-bold text-gray-600">IIT</span>
-          </div>
-          <h1 className="text-2xl font-bold text-gray-900">Student Login</h1>
-          <p className="text-gray-500 mt-2">
-            Sign in to access your student portal
+    <div className="min-h-screen flex flex-col lg:flex-row bg-gray-50">
+      {/* Mobile Header - Only visible on mobile */}
+      <div className="lg:hidden bg-gradient-to-r from-emerald-500 to-emerald-600 p-6">
+        <div className="flex items-center justify-center space-x-3">
+          <Shield className="w-8 h-8 text-white" />
+          <span className="text-white text-2xl font-bold">IIT Portal</span>
+        </div>
+      </div>
+
+      {/* Left Panel - Hidden on mobile */}
+      <div className="hidden lg:flex lg:w-1/2 xl:w-2/5 bg-gradient-to-br from-emerald-400 to-cyan-600 p-12 flex-col justify-between">
+        <div className="flex items-center space-x-3">
+          <Shield className="w-8 h-8 text-white" />
+          <span className="text-white text-2xl font-bold">IIT Portal</span>
+        </div>
+        
+        <div className="space-y-6">
+          <h1 className="text-4xl font-bold text-white">Welcome to Student Portal</h1>
+          <p className="text-emerald-50 text-lg">
+            Access your student dashboard to manage your courses, assignments, and academic progress.
           </p>
         </div>
+        
+        <div className="text-sm text-emerald-50 opacity-70">
+          © 2025 IIT Student Portal. All rights reserved.
+        </div>
+      </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-              Username
-            </label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your username"
-            />
+      {/* Right Panel - Login Form */}
+      <div className="w-full lg:w-1/2 xl:w-3/5 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div className="w-full max-w-md space-y-6">
+          <div className="text-center lg:text-left px-4 pt-4 pb-2">
+            <h2 className="text-2xl font-bold text-gray-900">Sign in to Portal</h2>
+            <p className="mt-2 text-base text-gray-600">
+              Continue with your Google account to access the student portal
+            </p>
           </div>
 
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your password"
-            />
-          </div>
-
-          <div className="text-right">
-            <a href="#" className="text-sm text-blue-600 hover:text-blue-500">
-              Forgot password?
-            </a>
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Sign In
-          </button>
-
-          <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300"></div>
+          {error && (
+            <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-base flex items-center justify-center space-x-2">
+              <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+              <span>{error}</span>
             </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">OR</span>
-            </div>
+          )}
+
+          <div className="px-4">
+            <button
+              type="button"
+              onClick={handleGoogleLogin}
+              disabled={loading}
+              className="w-full flex items-center justify-center space-x-3 py-4 border border-gray-300 rounded-2xl px-4 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 transition-all duration-200 text-lg font-medium"
+            >
+              {loading ? (
+                <div className="w-6 h-6 border-3 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                <>
+                  <svg className="w-6 h-6" viewBox="0 0 48 48">
+                    <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
+                    <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" />
+                    <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z" />
+                    <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z" />
+                  </svg>
+                  <span className="text-gray-700">Continue with Google</span>
+                </>
+              )}
+            </button>
           </div>
 
-          <button
-            type="button"
-            onClick={handleGoogleLogin}
-            disabled={loading}
-            className="w-full flex items-center justify-center space-x-2 border border-gray-300 rounded-md px-4 py-2 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032 s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2 C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
-            </svg>
-            <span className="text-gray-700">
-              {loading ? 'Signing in...' : 'Continue with Google'}
-            </span>
-          </button>
-        </form>
-
-        {error && (
-          <div className="mt-4 p-3 bg-red-50 border-l-4 border-red-500 text-red-700">
-            <p className="text-sm">{error}</p>
+          {/* Mobile Footer */}
+          <div className="mt-8 text-center text-sm text-gray-500 lg:hidden px-4">
+            © 2025 IIT Student Portal. All rights reserved.
           </div>
-        )}
-
-        <p className="mt-4 text-xs text-center text-gray-600">
-          By continuing, you agree to our{' '}
-          <a href="#" className="text-blue-600 hover:text-blue-500">
-            Terms of Service
-          </a>{' '}
-          and{' '}
-          <a href="#" className="text-blue-600 hover:text-blue-500">
-            Privacy Policy
-          </a>
-        </p>
+        </div>
       </div>
     </div>
   );
