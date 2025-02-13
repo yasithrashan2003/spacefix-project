@@ -121,15 +121,61 @@ const HomePage = () => {
   </div>
 </nav>
 
-      {/* Hero Section with proper spacing for fixed navbar */}
-      <div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-emerald-50 pt-16 sm:pt-20">
+{/* Hero Section with proper spacing for fixed navbar */}
+<div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-emerald-50 pt-16 sm:pt-20">
         {/* Background Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 right-0 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-gradient-to-br from-emerald-100/40 to-cyan-100/40 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/4"></div>
-          <div className="absolute bottom-0 left-0 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-gradient-to-tr from-emerald-100/40 to-cyan-100/40 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/4"></div>
+          {/* Existing gradient blobs */}
+          <div className="absolute top-0 right-0 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-gradient-to-br from-emerald-100/40 to-cyan-100/40 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/4 animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-gradient-to-tr from-emerald-100/40 to-cyan-100/40 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/4 animate-pulse"></div>
+
+          {/* Floating circles with improved animations */}
+          <div className="absolute left-1/4 top-32 w-12 h-12 bg-emerald-100/80 rounded-full animate-[bounce_6s_ease-in-out_infinite]"></div>
+          <div className="absolute right-1/4 top-48 w-8 h-8 bg-cyan-100/80 rounded-full animate-[ping_4s_ease-in-out_infinite]"></div>
+          <div className="absolute left-1/3 bottom-32 w-16 h-16 bg-emerald-100/80 rounded-full animate-[bounce_8s_ease-in-out_infinite]"></div>
+
+          {/* New animated squares */}
+          <div className="absolute left-1/2 top-1/4 w-12 h-12 bg-emerald-100/80 animate-[spin_8s_linear_infinite]"></div>
+          <div className="absolute right-1/3 bottom-1/4 w-16 h-16 bg-cyan-100/80 animate-[spin_10s_linear_infinite]"></div>
+
+          {/* Abstract shapes with animations */}
+          <div className="absolute right-1/3 top-1/4 w-24 h-24 border-4 border-emerald-100/80 rounded-full transform rotate-45 animate-[spin_15s_linear_infinite]"></div>
+          <div className="absolute left-1/2 bottom-1/4 w-32 h-32 border-4 border-cyan-100/80 rounded-full transform -rotate-12 animate-[spin_20s_linear_infinite]"></div>
+
+          {/* New triangular shapes */}
+          <div className="absolute top-1/3 right-1/4 w-0 h-0 border-l-[25px] border-l-transparent border-b-[40px] border-b-emerald-100/80 border-r-[25px] border-r-transparent animate-[bounce_7s_ease-in-out_infinite]"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-0 h-0 border-l-[20px] border-l-transparent border-b-[35px] border-b-cyan-100/80 border-r-[20px] border-r-transparent animate-[bounce_9s_ease-in-out_infinite]"></div>
+
+          {/* Animated dotted patterns */}
+          <div className="absolute top-1/4 right-1/4 flex gap-4 animate-[pulse_4s_ease-in-out_infinite]">
+            <div className="w-2 h-2 bg-emerald-200/90 rounded-full"></div>
+            <div className="w-2 h-2 bg-emerald-200/90 rounded-full animate-ping"></div>
+            <div className="w-2 h-2 bg-emerald-200/90 rounded-full"></div>
+          </div>
+          <div className="absolute bottom-1/3 left-1/4 flex gap-4 animate-[pulse_5s_ease-in-out_infinite]">
+            <div className="w-2 h-2 bg-cyan-200/90 rounded-full"></div>
+            <div className="w-2 h-2 bg-cyan-200/90 rounded-full animate-ping"></div>
+            <div className="w-2 h-2 bg-cyan-200/90 rounded-full"></div>
+          </div>
+
+          {/* Large animated decorative rings */}
+          <div className="absolute -top-24 -left-24 w-96 h-96 border border-emerald-100/80 rounded-full animate-[spin_30s_linear_infinite]"></div>
+          <div className="absolute -bottom-32 -right-32 w-96 h-96 border border-cyan-100/80 rounded-full animate-[spin_25s_linear_infinite]"></div>
+
+          {/* New diamond shapes */}
+          <div className="absolute top-1/2 right-1/2 w-12 h-12 bg-emerald-100/80 rotate-45 animate-[bounce_8s_ease-in-out_infinite]"></div>
+          <div className="absolute bottom-1/2 left-1/3 w-8 h-8 bg-cyan-100/80 rotate-45 animate-[bounce_7s_ease-in-out_infinite]"></div>
+
+          {/* Grid pattern with animation */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(236,253,245,0.9)_1px,_transparent_1px)] [background-size:20px_20px] animate-[pulse_8s_ease-in-out_infinite]"></div>
+
+          {/* New wave patterns */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-r from-emerald-100/20 to-cyan-100/20 animate-[pulse_6s_ease-in-out_infinite]"></div>
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-r from-cyan-100/20 to-emerald-100/20 animate-[pulse_7s_ease-in-out_infinite]"></div>
         </div>
 
         {/* Main Content Container */}
+        {/* ... Rest of the content remains the same ... */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-10 lg:gap-12 min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] py-8 md:py-10 lg:py-12">
             {/* Left Content Column */}
@@ -203,6 +249,12 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
+
+
+        
+
+
       {/* Features Section */}
       <section id="features" className="py-20 sm:py-28 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/80 to-transparent"></div>
@@ -334,7 +386,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
       <section id="contact" className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
@@ -386,7 +437,7 @@ const HomePage = () => {
                   <a
                     key={social.name}
                     href="#"
-                    className="hover:text-emerald-200 transition-colors transform hover:scale-110 transition-transform"
+                    className="hover:text-emerald-200 transition-all hover:scale-110"
                   >
                     <span className="sr-only">{social.name}</span>
                     {social.icon}

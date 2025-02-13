@@ -8,7 +8,7 @@ import AdminDashboard from './components/adminportal/AdminDashboard';
 import IITRoleLogin from './components/logins/iitlogins/IITRoleLogin.jsx';
 import UniversityLoginDashboard from './components/logins/UniversityLoginDashboard.jsx';
 import IITStudentLogin from './components/logins/iitlogins/IITStudentLogin.jsx';
-import TimeTableUpdate from './components/iitadmin/TimeTableUpdate.jsx';
+import UpdateTimetable from './components/iitadmin/UpdateTimetable.jsx';
 
 
 
@@ -22,7 +22,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/uni-login" element={<UniversityLoginDashboard />} />
         <Route path="/iit-role-login" element={<IITRoleLogin />} />
         <Route path="/iit-student-login" element={<IITStudentLogin />} />
-        <Route path="/timetable-update" element={<TimeTableUpdate />} />
+        <Route path="/timetable-update" element={<UpdateTimetable />} />
 
 
       </Routes>
