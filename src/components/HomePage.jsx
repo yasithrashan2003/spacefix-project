@@ -18,7 +18,7 @@ const HomePage = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // Height of the fixed navbar
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -32,299 +32,177 @@ const HomePage = () => {
 
   return (
     <div className="relative min-h-screen bg-gray-50">
-      {/* Navigation */}
-      <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-white/80 backdrop-blur-sm'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
-            {/* Logo */}
-            <div className="flex items-center">
-              <span className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-500 via-emerald-400 to-cyan-500 bg-clip-text text-transparent">
-                SPACEFIX
-              </span>
-            </div>
+      {/* Navigation - Removed blur effect */}
+<nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+  isScrolled ? 'bg-white shadow-lg' : 'bg-white'
+}`}>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center h-16 sm:h-20">
+      {/* Logo */}
+      <div className="flex items-center">
+        <span className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-500 via-emerald-400 to-cyan-500 bg-clip-text text-transparent">
+          SPACEFIX
+        </span>
+      </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
-              {['Features', 'Solutions', 'About', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="text-gray-700 text-base font-medium transition-all duration-300 relative group"
-                >
-                  {item}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
-                </button>
-              ))}
-              <div className="flex items-center space-x-4">
-                <button
-                  onClick={() => navigate('/uni-login')}
-                  className="px-6 py-2.5 text-emerald-600 bg-emerald-50 rounded-full hover:bg-emerald-100 transition-all duration-300 font-medium"
-                >
-                  Login
-                </button>
-                <button
-                  onClick={() => navigate('/admin-login')}
-                  className="px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-xl transition-all duration-300 font-medium shadow-lg transform hover:-translate-y-0.5"
-                >
-                  Get Started
-                </button>
-              </div>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-emerald-600 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu - Fixed position */}
-        <div 
-          className={`lg:hidden fixed left-0 right-0 top-16 transition-all duration-300 transform ${
-            isMenuOpen ? 'translate-y-0 opacity-100 visible' : '-translate-y-2 opacity-0 invisible'
-          }`}
-        >
-          <div className="mx-4 bg-white shadow-xl rounded-xl border border-gray-100">
-            <div className="flex flex-col divide-y divide-gray-100">
-              {['Features', 'Solutions', 'About', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="w-full text-left px-6 py-4 text-gray-700 hover:text-emerald-600 font-medium hover:bg-emerald-50/50 transition-all duration-200 flex items-center justify-between group"
-                >
-                  <span>{item}</span>
-                  <ChevronRight className="w-5 h-5 text-emerald-500 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200" />
-                </button>
-              ))}
-              <div className="p-4 space-y-3">
-                <button
-                  onClick={() => navigate('/uni-login')}
-                  className="w-full px-6 py-3 text-emerald-600 bg-emerald-50 rounded-full hover:bg-emerald-100 transition-all duration-200 font-medium"
-                >
-                  Login
-                </button>
-                <button
-                  onClick={() => navigate('/admin-login')}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg transition-all duration-200 font-medium"
-                >
-                  Get Started
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-   
-   
-      {/* Hero Section - Light Theme with Gradient Shapes */}
-    <div className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-emerald-50">
-      {/* Decorative Elements */}
-      <div className="absolute inset-0">
-        {/* Large gradient blobs - Adjusted for different screen sizes */}
-        <div className="absolute top-0 right-0 
-          w-[200px] h-[200px] 
-          sm:w-[300px] sm:h-[300px] 
-          md:w-[400px] md:h-[400px] 
-          lg:w-[500px] lg:h-[500px] 
-          xl:w-[600px] xl:h-[600px] 
-          bg-gradient-to-br from-emerald-100/40 to-cyan-100/40 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/4">
-        </div>
-        <div className="absolute bottom-0 left-0 
-          w-[200px] h-[200px] 
-          sm:w-[300px] sm:h-[300px] 
-          md:w-[400px] md:h-[400px] 
-          lg:w-[500px] lg:h-[500px] 
-          xl:w-[600px] xl:h-[600px] 
-          bg-gradient-to-tr from-emerald-100/40 to-cyan-100/40 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/4">
-        </div>
-        
-        {/* Geometric shapes - Responsive sizes */}
-        <div className="absolute 
-          top-1/4 left-1/3 
-          w-16 h-16 
-          sm:w-20 sm:h-20 
-          md:w-24 md:h-24 
-          lg:w-32 lg:h-32 
-          xl:w-40 xl:h-40 
-          bg-gradient-to-br from-emerald-200/20 to-emerald-100/20 rounded-2xl transform rotate-45">
-        </div>
-        
-        {/* Circular gradients - Hide on mobile, show on larger screens */}
-        <div className="hidden md:block absolute 
-          top-1/4 right-1/4 
-          w-32 h-32 
-          md:w-40 md:h-40 
-          lg:w-48 lg:h-48 
-          xl:w-56 xl:h-56 
-          rounded-full bg-gradient-to-r from-emerald-100/30 to-cyan-100/30 blur-2xl">
-        </div>
-        
-        {/* Small accent shapes - Hidden on mobile */}
-        <div className="hidden sm:block absolute 
-          bottom-1/3 right-1/3 
-          w-12 h-12 
-          sm:w-16 sm:h-16 
-          md:w-20 md:h-20 
-          bg-gradient-to-tr from-cyan-300/20 to-cyan-200/20 rounded-full">
-        </div>
-        
-        {/* Diagonal stripes - Hidden on mobile */}
-        <div className="hidden lg:block absolute top-0 left-0 w-96 h-96 opacity-[0.15] transform -rotate-45 scale-150">
-          <div className="absolute w-1 sm:w-2 h-full bg-gradient-to-b from-emerald-200 to-transparent left-20"></div>
-          <div className="absolute w-1 sm:w-2 h-full bg-gradient-to-b from-cyan-200 to-transparent left-48"></div>
-          <div className="absolute w-1 sm:w-2 h-full bg-gradient-to-b from-emerald-200 to-transparent left-80"></div>
+      {/* Desktop Navigation */}
+      <div className="hidden lg:flex items-center space-x-8">
+        {['Features', 'Solutions', 'About', 'Contact'].map((item) => (
+          <button
+            key={item}
+            onClick={() => scrollToSection(item.toLowerCase())}
+            className="text-gray-700 text-base font-medium transition-all duration-300 relative group"
+          >
+            {item}
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
+          </button>
+        ))}
+        <div className="flex items-center space-x-4">
+          <button
+            onClick={() => navigate('/uni-login')}
+            className="px-6 py-2.5 text-emerald-600 bg-emerald-50 rounded-full hover:bg-emerald-100 transition-all duration-300 font-medium"
+          >
+            Login
+          </button>
+          <button
+            onClick={() => navigate('/admin-login')}
+            className="px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-xl transition-all duration-300 font-medium shadow-lg transform hover:-translate-y-0.5"
+          >
+            Get Started
+          </button>
         </div>
       </div>
-      
-      {/* Content */}
-      <div className="relative z-10 text-center w-full 
-        px-4 
-        sm:px-6 
-        lg:px-8 
-        py-8
-        sm:py-12 
-        md:py-16 
-        lg:py-20 
-        xl:py-24 
-        mx-auto 
-        max-w-[95%] 
-        sm:max-w-[90%] 
-        lg:max-w-7xl">
-        <div className="space-y-4 sm:space-y-6 md:space-y-8">
-          {/* Heading - Improved responsive typography */}
-          <h1 className="text-[2rem] 
-            sm:text-[2.5rem] 
-            md:text-[3.5rem] 
-            lg:text-[4rem] 
-            xl:text-[5rem] 
-            font-bold 
-            leading-[1.1] 
-            sm:leading-[1.1] 
-            md:leading-[1.1] 
-            tracking-tight 
-            mb-4 
-            text-gray-900">
-            Transform Your Campus
-            <span className="block 
-              mt-2 
-              sm:mt-2 
-              md:mt-3 
-              bg-gradient-to-r 
-              from-emerald-500 
-              to-cyan-500 
-              bg-clip-text 
-              text-transparent">
-              Experience
-            </span>
-          </h1>
 
-          {/* Description - Better text scaling */}
-          <p className="text-base 
-            sm:text-lg 
-            md:text-xl 
-            lg:text-2xl 
-            max-w-[280px]
-            sm:max-w-[400px]
-            md:max-w-[500px]
-            lg:max-w-[600px]
-            xl:max-w-2xl 
-            mx-auto 
-            text-gray-600 
-            leading-relaxed">
-            Revolutionize your university's space management with our intelligent platform.
-          </p>
-          
-          {/* Buttons - Improved responsive layout */}
-          <div className="flex 
-            flex-col 
-            sm:flex-row 
-            justify-center 
-            items-center 
-            gap-3 
-            sm:gap-4 
-            md:gap-5 
-            lg:gap-6 
-            mt-6 
-            sm:mt-8 
-            md:mt-10">
-            {/* Primary Button */}
-            <button className="group 
-              w-[90%]
-              sm:w-auto 
-              min-w-[150px]
-              sm:min-w-[180px]
-              px-6 
-              sm:px-7 
-              md:px-8 
-              lg:px-10 
-              py-3 
-              sm:py-3.5 
-              md:py-4 
-              bg-gradient-to-r 
-              from-emerald-500 
-              to-emerald-600 
-              text-white 
-              rounded-full 
-              hover:shadow-xl 
-              transition-all 
-              duration-300 
-              font-medium 
-              text-base 
-              sm:text-lg 
-              relative 
-              overflow-hidden">
-              <span className="relative z-10">Start Free Trial</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-            </button>
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-emerald-600 transition-colors"
+        aria-label="Toggle menu"
+      >
+        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+    </div>
+  </div>
 
-            {/* Secondary Button */}
-            <button className="group 
-              w-[90%]
-              sm:w-auto 
-              min-w-[150px]
-              sm:min-w-[180px]
-              px-6 
-              sm:px-7 
-              md:px-8 
-              lg:px-10 
-              py-3 
-              sm:py-3.5 
-              md:py-4 
-              border-2 
-              border-emerald-500 
-              text-emerald-600 
-              rounded-full 
-              hover:bg-emerald-50 
-              transition-all 
-              duration-300 
-              font-medium 
-              text-base 
-              sm:text-lg 
-              flex 
-              items-center 
-              justify-center 
-              gap-2">
-              Watch Demo
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
+  {/* Mobile Menu */}
+  <div 
+    className={`lg:hidden fixed left-0 right-0 top-16 sm:top-20 transition-all duration-300 transform ${
+      isMenuOpen ? 'translate-y-0 opacity-100 visible' : '-translate-y-2 opacity-0 invisible'
+    } z-50`}
+  >
+    <div className="mx-4 bg-white shadow-xl rounded-xl border border-gray-100">
+      <div className="flex flex-col divide-y divide-gray-100">
+        {['Features', 'Solutions', 'About', 'Contact'].map((item) => (
+          <button
+            key={item}
+            onClick={() => scrollToSection(item.toLowerCase())}
+            className="w-full text-left px-6 py-4 text-gray-700 hover:text-emerald-600 font-medium hover:bg-emerald-50/50 transition-all duration-200 flex items-center justify-between group"
+          >
+            <span>{item}</span>
+            <ChevronRight className="w-5 h-5 text-emerald-500 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200" />
+          </button>
+        ))}
+        <div className="p-4 space-y-3">
+          <button
+            onClick={() => navigate('/uni-login')}
+            className="w-full px-6 py-3 text-emerald-600 bg-emerald-50 rounded-full hover:bg-emerald-100 transition-all duration-200 font-medium"
+          >
+            Login
+          </button>
+          <button
+            onClick={() => navigate('/admin-login')}
+            className="w-full px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg transition-all duration-200 font-medium"
+          >
+            Get Started
+          </button>
         </div>
       </div>
     </div>
+  </div>
+</nav>
 
+      {/* Hero Section with proper spacing for fixed navbar */}
+      <div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-emerald-50 pt-16 sm:pt-20">
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-gradient-to-br from-emerald-100/40 to-cyan-100/40 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/4"></div>
+          <div className="absolute bottom-0 left-0 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-gradient-to-tr from-emerald-100/40 to-cyan-100/40 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/4"></div>
+        </div>
 
+        {/* Main Content Container */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-10 lg:gap-12 min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] py-8 md:py-10 lg:py-12">
+            {/* Left Content Column */}
+            <div className="flex-1 w-full lg:max-w-2xl pt-4 md:pt-6 lg:pt-8">
+              <div className="space-y-4 md:space-y-6 lg:space-y-8">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 text-center lg:text-left">
+                  Transform Your Campus
+                  <span className="block mt-2 bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">
+                    Experience
+                  </span>
+                </h1>
+                
+                <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+                  Revolutionize your university's space management with our intelligent platform.
+                </p>
 
+                <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+                  <button className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-xl transition-all duration-300 text-base md:text-lg font-medium w-full sm:w-auto">
+                    <span className="flex items-center justify-center gap-2">
+                      Start Free Trial
+                      <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </button>
+
+                  <button className="group px-6 md:px-8 py-3 md:py-4 border-2 border-emerald-500 text-emerald-600 rounded-full hover:bg-emerald-50 transition-all duration-300 text-base md:text-lg font-medium flex items-center justify-center gap-2 w-full sm:w-auto">
+                    Watch Demo
+                    <svg className="w-4 h-4 md:w-5 md:h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <div className="pt-8 md:pt-10 lg:pt-12">
+                  <p className="text-gray-500 mb-4 text-center lg:text-left">Trusted by leading universities</p>
+                  <div className="flex flex-wrap gap-6 md:gap-8 items-center justify-center lg:justify-start">
+                    <img 
+                      src="https://studyway-resources.s3.amazonaws.com/profilePictures/1677148866188.png"
+                      alt="University 1" 
+                      className="h-10 w-10 md:h-12 md:w-12 object-cover rounded-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Content Column */}
+            <div className="flex-1 w-full max-w-lg lg:max-w-none mt-8 lg:mt-0">
+              <div className="relative aspect-video bg-white rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-gray-50/50 p-4 md:p-6">
+                  <div className="h-full rounded-lg md:rounded-xl bg-white p-4 md:p-6 flex flex-col items-center justify-center">
+                    <div className="animate-pulse flex flex-col items-center space-y-3 md:space-y-4">
+                      <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full flex items-center justify-center">
+                        <svg className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                      </div>
+                      <div className="text-lg md:text-xl font-semibold text-gray-700 text-center">Space Management Made Simple</div>
+                      <div className="flex gap-2 md:gap-3">
+                        <div className="h-1.5 md:h-2 w-16 md:w-24 bg-emerald-200 rounded animate-pulse"></div>
+                        <div className="h-1.5 md:h-2 w-12 md:w-16 bg-cyan-200 rounded animate-pulse"></div>
+                        <div className="h-1.5 md:h-2 w-14 md:w-20 bg-emerald-200 rounded animate-pulse"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Features Section */}
       <section id="features" className="py-20 sm:py-28 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/80 to-transparent"></div>
