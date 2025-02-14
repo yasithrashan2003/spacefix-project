@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Lock, User, ArrowRight, Shield } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const AdminLogin = ({ onLoginSuccess }) => {
+const IITAdminLogin = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -16,7 +16,7 @@ const AdminLogin = ({ onLoginSuccess }) => {
     
     if (username === 'admin' && password === '1234') {
       onLoginSuccess?.();
-      navigate('/admin-dashboard');
+      navigate('/iit-admin-dashboard');
     } else {
       setError('Invalid credentials');
       setTimeout(() => setError(''), 3000);
@@ -139,4 +139,4 @@ const AdminLogin = ({ onLoginSuccess }) => {
   );
 };
 
-export default AdminLogin;
+export default IITAdminLogin;

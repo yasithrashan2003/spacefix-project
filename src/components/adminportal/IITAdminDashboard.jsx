@@ -8,7 +8,7 @@ const IconFallback = ({ className }) => (
   </div>
 );
 
-const AdminDashboard = () => {
+const IITAdminDashboard = () => {
   const navigate = useNavigate();
 
   const features = [
@@ -22,13 +22,13 @@ const AdminDashboard = () => {
       id: 2,
       title: 'Classroom Allocation',
       description: 'Assign and manage classroom spaces',
-      path: '/classrooms'
+      path: '/classroom-allocation'
     },
     {
       id: 3,
-      title: 'Lab Scheduling',
+      title: 'Filter Timetable',
       description: 'Manage laboratory sessions',
-      path: '/labs'
+      path: '/filter-timetable'
     },
     {
       id: 4,
@@ -82,4 +82,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+export default IITAdminDashboard;

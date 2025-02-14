@@ -65,7 +65,7 @@ const HomePage = () => {
             Login
           </button>
           <button
-            onClick={() => navigate('/admin-login')}
+            onClick={() => navigate('/')}
             className="px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-xl transition-all duration-300 font-medium shadow-lg transform hover:-translate-y-0.5"
           >
             Get Started
@@ -110,7 +110,7 @@ const HomePage = () => {
             Login
           </button>
           <button
-            onClick={() => navigate('/admin-login')}
+            onClick={() => navigate('/')}
             className="w-full px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg transition-all duration-200 font-medium"
           >
             Get Started

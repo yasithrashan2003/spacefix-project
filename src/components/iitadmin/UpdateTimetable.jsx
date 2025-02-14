@@ -2,7 +2,87 @@ import React, { useState, useEffect } from 'react';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
 
+// Simple Alert Component
+const Alert = ({ children, variant = 'error' }) => {
+  const bgColor = variant === 'error' ? 'bg-red-100' : 'bg-blue-100';
+  const textColor = variant === 'error' ? 'text-red-800' : 'text-blue-800';
+  
+  return (
+    <div className={`p-4 ${bgColor} ${textColor} rounded-lg mb-4`}>
+      {children}
+    </div>
+  );
+};
+
+const PasswordGate = ({ onAuthenticate }) => {
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // You should replace this with your desired password
+    const correctPassword = 'admin123';
+    
+    if (password === correctPassword) {
+      onAuthenticate(true);
+      localStorage.setItem('timetableAuth', 'true');
+    } else {
+      setError('Incorrect password. Please try again.');
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">
+        <div>
+          <h2 className="text-center text-3xl font-bold text-gray-900">
+            Timetable Management
+          </h2>
+          <p className="mt-2 text-center text-sm text-gray-600">
+            Please enter the password to access the timetable
+          </p>
+        </div>
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <div className="rounded-md shadow-sm -space-y-px">
+            <div>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                placeholder="Enter password"
+              />
+            </div>
+          </div>
+
+          {error && (
+            <Alert>{error}</Alert>
+          )}
+
+          <div>
+            <button
+              type="submit"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Access Timetable
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
 const UpdateTimeTable = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  
+  useEffect(() => {
+    const auth = localStorage.getItem('timetableAuth');
+    if (auth === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
   const timeSlots = [
     "08:30-10:30",
     "10:30-12:30",
@@ -126,8 +206,15 @@ const UpdateTimeTable = () => {
       }
     };
 
-    loadTimetableData();
-  }, [selectedGroup]);
+    if (isAuthenticated) {
+      loadTimetableData();
+    }
+  }, [selectedGroup, isAuthenticated]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('timetableAuth');
+    setIsAuthenticated(false);
+  };
 
   const handleInputChange = (day, timeSlot, field, value) => {
     setTimetableData(prev => ({
@@ -312,10 +399,22 @@ const UpdateTimeTable = () => {
     }
   };
 
+  if (!isAuthenticated) {
+    return <PasswordGate onAuthenticate={setIsAuthenticated} />;
+  }
+
   return (
     <div className="container mx-auto p-4">
       <div className="mb-6 space-y-4">
-        <h2 className="text-2xl font-bold">Update Timetable</h2>
+        <div className="flex justify-between items-center">
+          <h2 className="text-2xl font-bold">Update Timetable</h2>
+          <button
+            onClick={handleLogout}
+            className="px-4 py-2 text-sm text-red-600 hover:text-red-700 font-medium"
+          >
+            Logout
+          </button>
+        </div>
         
         <div className="flex items-center space-x-4">
           <label className="font-medium">Select Group:</label>
